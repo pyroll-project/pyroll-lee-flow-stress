@@ -24,22 +24,23 @@ class ChemicalComposition:
     weight_percent_lead: Optional[float] = 0
 
     def __post_init__(self):
-        self.iww_equivalent_carbon_content = self.weight_percent_carbon + self.weight_percent_manganese / 6 + (
+        self.equivalent_carbon_content = self.weight_percent_carbon + self.weight_percent_manganese / 6 + (
                 self.weight_percent_chromium + self.weight_percent_molybdenum + self.weight_percent_vanadium) / 5 + (
-                                                     self.weight_percent_copper + self.weight_percent_nickel) / 15
-        self.equivalent_carbon_content = self.iww_equivalent_carbon_content
+                                                 self.weight_percent_copper + self.weight_percent_nickel) / 15
 
 
 def flow_stress(chemical_composition: ChemicalComposition, strain: float, strain_rate: float, temperature: float):
     """
-    Calculates the flow stress according to the constitutive equation from Lee et al. the provided material composition, strain, strain rate and temperature.
+    Calculates the flow stress according to the constitutive equation from Lee et al. the provided material composition,
+     strain, strain rate and temperature.
 
     :param chemical_composition: the chemical composition of the material
     :param strain: the equivalent strain experienced
     :param strain_rate: the equivalent strain rate experienced
     :param temperature: the absolute temperature of the material (K)
     """
-
+    base_strain = 0.1
+    strain = strain + base_strain
     transformation_temperature = 0.95 * (chemical_composition.equivalent_carbon_content + 0.41) / (
             chemical_composition.equivalent_carbon_content + 0.32)
 
@@ -75,4 +76,4 @@ def flow_stress(chemical_composition: ChemicalComposition, strain: float, strain
             strain_rate / 100) ** (strain_rate_sensitivity / 2.4) * (strain_rate / 1000) ** (
                                                  strain_rate_sensitivity / 15)
 
-    return 9.81 * deformation_resistance_contribution * strain_hardening_contribution * strain_rate_hardening_contribution
+    return 9.81 * deformation_resistance_contribution * strain_hardening_contribution * strain_rate_hardening_contribution * 1e6
