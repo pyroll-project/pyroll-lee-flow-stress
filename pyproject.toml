@@ -1,5 +1,5 @@
 [project]
-name = "pyroll-leee-flow-stress"
+name = "pyroll-lee-flow-stress"
 description = "Plugin for PyRoll providing the constitutive flow stress function from Lee et al."
 authors = [
     { name = "Christoph Renzing", email = "christoph.renzing@imf.tu-freiberg.de" }
@@ -18,7 +18,8 @@ classifiers = [
 
 requires-python = ">=3.9, <4.0"
 dependencies = [
-    "pyroll-core ~= 2.0"
+    "pyroll-core",
+    "pyroll-interface-material @ file:///home/christoph/PycharmProjects/pyroll-lee-flow-stress/pyroll_interface_material-2.0-py3-none-any.whl"
 ]
 
 dynamic = ["version"]

@@ -7,13 +7,19 @@ from pyroll.core import Profile, Roll, RollPass, Transport, RoundGroove, Circula
 def test_solve(tmp_path: Path, caplog):
     caplog.set_level(logging.DEBUG, logger="pyroll")
 
+    from pyroll.interface_material import ChemicalComposition
     import pyroll.lee_flow_stress
 
     in_profile = Profile.round(
         diameter=30e-3,
         temperature=1200 + 273.15,
         strain=0,
-        material=["C20", "steel"]
+        material=["Test Steel", "steel"],
+        chemical_composition=ChemicalComposition(
+            weight_percent_carbon=0.1,
+            weight_percent_silicium=0.25,
+            weight_percent_manganese=0.45
+        )
     )
 
     sequence = PassSequence(
@@ -57,7 +63,6 @@ def test_solve(tmp_path: Path, caplog):
         print("\nLog:")
         print(caplog.text)
 
-    assert sequence[0].in_profile.has_cached("chemical_composition")
 
     try:
         from pyroll.report import report

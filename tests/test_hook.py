@@ -1,8 +1,7 @@
-import weakref
-
 import numpy as np
 
-from pyroll.lee_flow_stress.lee_flow_stress import ChemicalComposition, flow_stress
+from pyroll.interface_material import ChemicalComposition
+from pyroll.lee_flow_stress import flow_stress
 from pyroll.lee_flow_stress import lee_flow_stress as hook
 
 strain = 1
