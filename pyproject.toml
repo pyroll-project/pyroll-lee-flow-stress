@@ -19,7 +19,7 @@ classifiers = [
 requires-python = ">=3.9, <4.0"
 dependencies = [
     "pyroll-core",
-    "pyroll-interface-material @ file:///home/christoph/PycharmProjects/pyroll-lee-flow-stress/pyroll_interface_material-2.0-py3-none-any.whl"
+    "pyroll-interface-material"
 ]
 
 dynamic = ["version"]
