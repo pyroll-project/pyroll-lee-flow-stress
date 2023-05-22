@@ -1,4 +1,4 @@
-# PyRoll Freiberg Flow Stress Model
+# PyRoll Lee Flow Stress Model
 
 Plugin for PyRoll providing the constitutive flow stress function from Lee et al..
 
