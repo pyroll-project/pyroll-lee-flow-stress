@@ -1,7 +1,7 @@
 import numpy as np
 
 from pyroll.core import DeformationUnit
-from pyroll.interface_material import ChemicalComposition
+
 
 VERSION = "2.0"
 
