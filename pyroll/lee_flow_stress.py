@@ -3,7 +3,7 @@ import numpy as np
 from pyroll.core import DeformationUnit
 
 
-VERSION = "2.0"
+VERSION = "2.0.1"
 
 
 @DeformationUnit.Profile.flow_stress
@@ -65,9 +65,7 @@ def flow_stress(chemical_composition: dict[str, float], strain: float, strain_ra
     deformation_resistance_contribution = 0.28 * temperature_correction * np.exp(
         5 / normalized_temperature - 0.01 / (chemical_composition["carbon"] + 0.05))
     strain_contribution = 1.3 * (strain / 0.2) ** strain_hardening_factor - 0.3 * (strain / 0.2)
-    strain_rate_contribution = (strain_rate / 10) ** strain_rate_sensitivity * (
-                strain_rate / 100) ** strain_rate_sensitivity / 2.4 * (
-                                           strain_rate / 1000) ** strain_rate_sensitivity / 15
+    strain_rate_contribution = ((strain_rate / 10) ** strain_rate_sensitivity) * ((strain_rate / 100) ** (strain_rate_sensitivity / 2.4)) * ((strain_rate / 1000) ** (strain_rate_sensitivity / 15))
 
     conversion_to_si_units_from_kgf_per_mm_squared = 9806650
 
