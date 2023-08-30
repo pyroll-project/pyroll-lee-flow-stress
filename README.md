@@ -1,6 +1,6 @@
-# PyRoll Lee Flow Stress Model
+# PyRolL Lee Flow Stress Model
 
-Plugin for PyRoll providing the constitutive flow stress function from Lee et al..
+Plugin for PyRolL providing the constitutive flow stress function from Lee et al..
 
 For the docs, see [here](docs/index.md).
 
