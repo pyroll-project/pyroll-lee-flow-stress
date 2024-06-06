@@ -14,9 +14,9 @@ def test_solve(tmp_path: Path, caplog):
         temperature=1200 + 273.15,
         strain=0,
         material=["Test Steel", "steel"],
-        chemical_composition={"carbon": 0.1,
-                              "silicium": 0.25,
-                              "manganese": 0.45}
+        chemical_composition={"C": 0.1,
+                              "SI": 0.25,
+                              "MN": 0.45}
     )
 
     sequence = PassSequence(

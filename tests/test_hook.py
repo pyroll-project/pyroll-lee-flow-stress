@@ -6,9 +6,9 @@ from pyroll.lee_flow_stress import lee_flow_stress as hook
 strain = 1
 strain_rate = 1
 temperature = 1200
-composition = {"carbon": 0.1,
-               "silicium": 0.25,
-               "manganese": 0.45}
+composition = {"C": 0.1,
+               "SI": 0.25,
+               "MN": 0.45}
 
 
 class DummyProfile:
